@@ -9,7 +9,7 @@ const posts = [
     img1: "/images/garage/post1/1.jpg",
     img2: "/images/garage/post1/2.jpg",
     img3: "/images/garage/post1/3.jpg",
-    Username: "Allen Rosacay Bacalaoloyo",
+    Username: "@Allen Rosacay Bacalaoloyo",
     Caption: "Ride out bitbit 59as lng ang baon",
     Likes: "57.7k",
     Dislikes: "437",
@@ -33,10 +33,10 @@ export const Garage = () => {
   return (
     <main
       id="scrollable"
-      className="flex w-full flex-col items-center gap-6 py-28"
+      className="flex w-full flex-col items-center gap-2 py-28"
     >
       <div className="w-[60rem]">
-        <div className="text-[#feeeeee flex h-[16rem] w-full items-center gap-6 rounded-2xl bg-[#242526] px-12 py-6 drop-shadow-lg">
+        <div className="text-[#feeeeee flex h-[16rem] w-full items-center gap-6 rounded-lg bg-[#242526] px-12 py-6 drop-shadow-lg">
           <div className=" size-[12rem] overflow-hidden rounded-full bg-slate-600">
             <img
               className="h-full w-full object-cover"
@@ -46,14 +46,10 @@ export const Garage = () => {
           </div>
           <div className=" flex flex-grow flex-col gap-2">
             <h1 className=" text-4xl font-extrabold text-[#f3f3f3]">
-              {posts[0].Username}
+              🏆 {posts[0].Username}
             </h1>
             <div className="h-[2px] w-[25rem] rounded-full bg-[#bfbfc0b6]"></div>
-            <h2 className="text-2xl font-bold text-[#b6b5b5]">Automatic</h2>
-          </div>
-          <div className="flex h-full gap-4">
-            <div className="size-14 rounded-full bg-slate-400"></div>
-            <div className="size-14 rounded-full bg-slate-600"></div>
+            <h2 className="text-2xl font-bold text-[#b6b5b5]">Lamborgini</h2>
           </div>
         </div>
       </div>
@@ -87,7 +83,7 @@ export const Garage = () => {
               <div className="h-[15rem] w-[10rem] overflow-hidden rounded-lg bg-slate-600">
                 <img
                   className="h-full w-full object-cover"
-                  src="/images/garage/1.jpg"
+                  src="/images/garage/featured2.jpg"
                   alt=""
                 />
               </div>
@@ -101,6 +97,7 @@ export const Garage = () => {
           {posts.map((post, index) => {
             return (
               <Post
+                key={index}
                 profile={post.Profile}
                 isVideo={post.IsVideo}
                 imgNum={post.ImgNum}

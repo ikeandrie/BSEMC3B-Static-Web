@@ -45,10 +45,11 @@ export const Header = () => {
       </div>
       <div className="flex gap-2 font-medium">
         <Link
-          className="flex items-center rounded-md bg-[#f1f1f2] px-4 py-2 hover:bg-[#d4d4d6]"
+          className="relative flex items-center rounded-md bg-[#f1f1f2] px-4 py-2 hover:bg-[#d4d4d6]"
           to={tabs[2].Link}
         >
           <Bell size={20} />
+          <div className="absolute"></div>
         </Link>
         <Link
           className="items-center rounded-md bg-[#f1f1f2] px-6 py-2 hover:bg-[#d4d4d6]"

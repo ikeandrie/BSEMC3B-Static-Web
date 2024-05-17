@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import "../styles/index.scss";
 
 import ErrorPage from "./global-error.jsx";
@@ -18,6 +19,8 @@ import { CrankShafts } from "../pages/store/crankshaft.jsx";
 import { CamShafts } from "../pages/store/camshaft.jsx";
 import { Mags } from "../pages/store/mags.jsx";
 import { Rims } from "../pages/store/rims.jsx";
+import { Kapwa } from "../pages/users/kapwa.jsx";
+import { JampongChapsuey } from "../pages/providers/jampong-chapsuey.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,11 +30,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "users",
-        element: <></>,
+        element: <Outlet />,
         children: [
           {
             path: "@kapwa",
-            element: <></>,
+            element: <Kapwa />,
           },
         ],
       },
@@ -72,6 +75,10 @@ const router = createBrowserRouter([
             element: <Rims />,
           },
         ],
+      },
+      {
+        path: "/store/cvt/honda-click-125-stock-cvt-set",
+        element: <JampongChapsuey />,
       },
       {
         path: "garage",

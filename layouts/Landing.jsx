@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Search, Bell } from "lucide-react";
 import { Post } from "../components/ui/post";
 import { Users } from "../lib/users";
+import { EllipsisVertical } from "lucide-react";
 
 const tabs = [
   {
@@ -20,19 +21,48 @@ const tabs = [
   },
 ];
 
+const notifications = [
+  {
+    Profile: Users[3].Profile,
+    Username: Users[3].Username,
+    Message: "Message you",
+    Text: "message",
+  },
+  {
+    Profile: Users[1].Profile,
+    Username: Users[1].Username,
+    Message: "Want to trade",
+    Text: "message",
+  },
+  {
+    Profile: Users[4].Profile,
+    Username: Users[4].Username,
+    Message: "Message you",
+    Text: "message",
+  },
+  {
+    Profile: Users[5].Profile,
+    Username: Users[5].Username,
+    Message: "Suggested to joy ride",
+    Text: "message",
+  },
+  {
+    Profile: Users[2].Profile,
+    Username: Users[2].Username,
+    Message: "Followed you",
+    Text: "message",
+  },
+];
+
 export const Landing = () => {
   const [currentPage, setCurrentPage] = useState("onHome");
+  const [isHovered, setIsHovered] = useState(false);
 
   const renderPage = () => {
     switch (currentPage) {
       case "onOutlet":
         return <Outlet />;
       case "onHome":
-        const numOfPosts = 5;
-        const posts = Array.from({ length: numOfPosts }, (_, index) => (
-          <Post key={index} />
-        ));
-
         return (
           <main
             id="scrollable"
@@ -40,21 +70,24 @@ export const Landing = () => {
           >
             {Users.map((user, index) => {
               return (
-                <Post
-                  key={index}
-                  profile={user.Profile}
-                  isVideo={user.IsVideo}
-                  imgNum={user.ImgNum}
-                  img1={user.img1}
-                  img2={user.img2}
-                  img3={user.img3}
-                  img4={user.img4}
-                  username={user.Username}
-                  content={user.Caption}
-                  likes={user.Likes}
-                  dislikes={user.Dislikes}
-                  comments={user.Comments}
-                />
+                <>
+                  <Post
+                    key={index}
+                    onClick={() => setCurrentPage("onOutlet")}
+                    profile={user.Profile}
+                    isVideo={user.IsVideo}
+                    imgNum={user.ImgNum}
+                    img1={user.img1}
+                    img2={user.img2}
+                    img3={user.img3}
+                    img4={user.img4}
+                    username={user.Username}
+                    content={user.Caption}
+                    likes={user.Likes}
+                    dislikes={user.Dislikes}
+                    comments={user.Comments}
+                  />
+                </>
               );
             })}
           </main>
@@ -89,12 +122,43 @@ export const Landing = () => {
             <span className="font-light text-white/40">Search motors</span>
           </div>
         </div>
-        <div className="flex gap-2 font-medium">
+        <div className="flex items-center gap-2 font-medium">
           <button
-            onClick={() => setCurrentPage("onOutlet")}
-            className="flex items-center rounded-md bg-[#3a3b3c] px-6 py-1 text-sm text-[#e4e6eb] hover:bg-[#525355]"
+            onClick={() => setIsHovered(!isHovered)}
+            className="relative flex items-center rounded-md bg-[#3a3b3c] px-4 py-2 text-sm text-[#e4e6eb] hover:bg-[#525355]"
           >
             <Bell size={18} />
+            <div
+              className={`${isHovered ? "block" : "hidden"} absolute right-0 top-12 flex w-[28rem] flex-col gap-4 rounded-md bg-[#3a3b3c] px-8 py-6 transition-all duration-500`}
+            >
+              {notifications.map((notif, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="size-14 overflow-hidden rounded-full bg-slate-600">
+                        <img
+                          className="h-full w-full bg-center object-cover"
+                          src={notif.Profile}
+                          alt=""
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-md font-light">
+                          {notif.Username}: {notif.Message}{" "}
+                        </span>
+                        <p className=" text-start">{notif.Text}</p>
+                      </div>
+                    </div>
+                    <div className="-mr-3 flex cursor-pointer items-center justify-center rounded-full text-white hover:bg-[#3a3b3c]">
+                      <EllipsisVertical size={25} />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </button>
           {pageLink(tabs[2].Link, tabs[2].Text, "onOutlet")}
         </div>

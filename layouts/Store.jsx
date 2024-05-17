@@ -1,7 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import { useState } from "react";
 import { Item } from "../components/ui/item";
-import { useLocation } from "react-router-dom";
 import {
   CamShaft,
   CrankShaft,
@@ -16,8 +15,6 @@ import {
 
 export const Store = () => {
   const [currentPage, setCurrentPage] = useState("onStore");
-
-  const path = useLocation();
 
   const renderPage = () => {
     switch (currentPage) {
@@ -36,7 +33,7 @@ export const Store = () => {
         ];
 
         return (
-          <div className="grid grid-cols-5 gap-x-4 gap-y-2">
+          <div className="bg-primary grid grid-cols-5 gap-x-4 gap-y-2 rounded-lg px-12 py-8">
             {assorted.map((item, index) => {
               return (
                 <Item
@@ -45,6 +42,7 @@ export const Store = () => {
                   image={item.Image}
                   price={item.Price}
                   rating={item.Rating}
+                  itemLink={item.Item}
                 />
               );
             })}

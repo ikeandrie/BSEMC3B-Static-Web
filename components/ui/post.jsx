@@ -1,7 +1,9 @@
 import { EllipsisVertical, Share2, Heart, MessageSquare } from "lucide-react";
 import { BiSolidDislike, BiSolidLike } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 export const Post = ({
+  onClick,
   profile,
   isVideo,
   imgNum,
@@ -80,7 +82,9 @@ export const Post = ({
               />
             </div>
             <span className="flex flex-grow flex-col gap-[.1rem]">
-              {username}
+              <Link to="/users/@kapwa" onClick={onClick}>
+                {username}
+              </Link>
               <span className="text-[.75rem] text-white/60">May 5, 2024</span>
             </span>
             <div className="-mr-4 flex items-center gap-1">
