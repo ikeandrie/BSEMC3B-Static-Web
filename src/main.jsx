@@ -7,7 +7,7 @@ import ErrorPage from "./global-error.jsx";
 
 import { Landing } from "../layouts/Landing.jsx";
 
-import { Store } from "../layouts/store.jsx";
+import { Store } from "../layouts/Store.jsx";
 import { Garage } from "../layouts/garage.jsx";
 
 import { CVT } from "../pages/store/cvt.jsx";
@@ -25,6 +25,16 @@ const router = createBrowserRouter([
     element: <Landing />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        path: "users",
+        element: <></>,
+        children: [
+          {
+            path: "@kapwa",
+            element: <></>,
+          },
+        ],
+      },
       {
         path: "store",
         element: <Store />,
