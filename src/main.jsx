@@ -8,7 +8,7 @@ import ErrorPage from "./global-error.jsx";
 import { Landing } from "../layouts/Landing.jsx";
 
 import { Store } from "../layouts/Store.jsx";
-import { Garage } from "../layouts/garage.jsx";
+import { Garage } from "../layouts/Garage.jsx";
 
 import { CVT } from "../pages/store/cvt.jsx";
 import { Heads } from "../pages/store/head.jsx";
