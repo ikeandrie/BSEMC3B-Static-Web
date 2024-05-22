@@ -25,32 +25,32 @@ const notifications = [
   {
     Profile: Users[3].Profile,
     Username: Users[3].Username,
-    Message: "Message you",
-    Text: "message",
+    Message: "You have a new message",
+    Text: "You have received a new message.",
   },
   {
     Profile: Users[1].Profile,
     Username: Users[1].Username,
-    Message: "Want to trade",
-    Text: "message",
+    Message: "User wants to trade with you",
+    Text: "A user wants to trade items with you.",
   },
   {
     Profile: Users[4].Profile,
     Username: Users[4].Username,
-    Message: "Message you",
-    Text: "message",
+    Message: "You have a new message",
+    Text: "You have received a new message.",
   },
   {
     Profile: Users[5].Profile,
     Username: Users[5].Username,
-    Message: "Suggested to joy ride",
-    Text: "message",
+    Message: "User suggested a joy ride",
+    Text: "A user has suggested going on a joy ride.",
   },
   {
     Profile: Users[2].Profile,
     Username: Users[2].Username,
-    Message: "Followed you",
-    Text: "message",
+    Message: "User started following you",
+    Text: "A user has started following you.",
   },
 ];
 
@@ -129,7 +129,7 @@ export const Landing = () => {
           >
             <Bell size={18} />
             <div
-              className={`${isHovered ? "block" : "hidden"} absolute right-0 top-12 flex w-[28rem] flex-col gap-4 rounded-md bg-[#3a3b3c] px-8 py-6 transition-all duration-500`}
+              className={`${isHovered ? "block" : "hidden"} absolute right-0 top-12 flex w-[30rem] flex-col gap-4 rounded-md bg-[#3a3b3c] px-8 py-6 transition-all duration-500`}
             >
               {notifications.map((notif, index) => {
                 return (

@@ -3,8 +3,8 @@ import { Cvt, Head, Mag } from "../../lib/store";
 import { FaStar } from "react-icons/fa";
 
 export const JampongChapsuey = () => {
-  const numOfPosts = 5;
-  const rating = Array.from({ length: numOfPosts }, (_, index) => (
+  const ratingNum = 5;
+  const rating = Array.from({ length: ratingNum }, (_, index) => (
     <FaStar size={20} key={index} />
   ));
 

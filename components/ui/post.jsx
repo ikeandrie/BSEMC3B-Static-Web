@@ -112,11 +112,11 @@ export const Post = ({
         </div>
         <div className="flex items-center">
           <button className="flex items-center justify-center gap-2 rounded-md px-4 py-2 hover:bg-[#525355]">
-            <BiSolidLike size={24} />
+            <BiSolidLike className=" text-green-600" size={24} />
             <span className=" whitespace-nowrap">{likes} Likes</span>
           </button>
           <button className="flex items-center justify-center gap-2 rounded-md px-4 py-2 hover:bg-[#525355]">
-            <BiSolidDislike size={24} />
+            <BiSolidDislike className=" text-red-600" size={24} />
             <span className=" whitespace-nowrap">{dislikes} Dislikes</span>
           </button>
         </div>
